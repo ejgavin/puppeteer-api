@@ -10,7 +10,7 @@ app.get("/", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      executablePath: pathToChrome,
+      // executablePath: pathToChrome,
       headless: "new",
       args: [
         "--no-sandbox",
