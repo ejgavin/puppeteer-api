@@ -1,6 +1,5 @@
 const express = require("express");
 const puppeteer = require("puppeteer");
-const pathToChrome = "/opt/render/.cache/puppeteer/chrome/linux-121.0.6167.85/chrome-linux64/chrome";
 
 const app = express();
 
@@ -10,7 +9,6 @@ app.get("/", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      // executablePath: pathToChrome,
       headless: "new",
       args: [
         "--no-sandbox",
