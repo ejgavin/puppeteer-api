@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: puppeteer-m3u8-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true
+    branch: main
+    healthCheckPath: /
