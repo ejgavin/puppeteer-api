@@ -9,7 +9,7 @@ app.get("/", async (req, res) => {
 
   try {
     const browser = await puppeteer.launch({
-      headless: "new",
+      headless: "true",
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
@@ -49,7 +49,8 @@ app.get("/", async (req, res) => {
 
     res.json({ m3u8Links: [...new Set(m3u8Links)] }); // remove duplicates
   } catch (err) {
-    res.status(500).json({ error: err.toString() });
+    console.error("Error:", err);
+    res.status(500).json({ error: err.message || "Unknown error" });
   }
 });
 
