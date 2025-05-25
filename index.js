@@ -10,14 +10,14 @@ app.get("/", async (req, res) => {
   try {
     const browser = await puppeteer.launch({
       headless: "new",
-      // executablePath removed to use default Chromium
+      executablePath: puppeteer.executablePath(),
       args: [
         "--no-sandbox",
         "--disable-setuid-sandbox",
         "--disable-infobars",
         "--window-position=0,0",
-        "--ignore-certifcate-errors",
-        "--ignore-certifcate-errors-spki-list",
+        "--ignore-certificate-errors",
+        "--ignore-certificate-errors-spki-list",
         "--disable-blink-features=AutomationControlled"
       ]
     });
